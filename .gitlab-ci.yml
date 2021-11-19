@@ -34,7 +34,7 @@ build:
             fi
         done
       done
-      iscompleted=0
+        iscompleted=0
         while [[ $iscompleted == 0 ]] ; do
                   countStatus1=$(curl --header "PRIVATE-TOKEN:Ks72P5BHKbL6zhxbUgXw" "https://git3.nexdev.net/api/v4/projects/486/pipelines?scope=running" | jq length)
                   echo "$countStatus1"
@@ -48,7 +48,6 @@ build:
                       totalgames=$(echo -n "$arr" | wc -w)
                         latestpipeline=$(curl --header "PRIVATE-TOKEN:Ks72P5BHKbL6zhxbUgXw" "https://git3.nexdev.net/api/v4/projects/486/pipelines?per_page=${totalgames}"  | jq -r '.[].status') 
                     fi
-        #echo "${latestpipeline}"
                 else      
                 sleep 30
                   fi
@@ -62,7 +61,7 @@ build:
                           else    
                                 echo "All Passed"
                                 jobresult=1
-                                                     fi
+                          fi
                      done
                       if [ $jobresult == 0 ] ; then
                         echo "job failed"
