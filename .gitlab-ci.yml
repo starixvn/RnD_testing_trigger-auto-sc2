@@ -52,17 +52,12 @@ build:
                 sleep 30
                   fi
              done
-                     jobresult=0              
-                     for j in ${latestpipeline} ; do
-                          echo "value $j"
-                         if [ $j == "failed" ] ; then
-                                echo "Break"                               
-                                break
-                          else    
-                                echo "All Passed"
-                                jobresult=1
-                          fi
-                     done
+                     jobresult=1   
+                     SUB="failed"
+                     case $latestpipeline in *"$SUB"*)
+                        echo "It's there."
+                        jobresult=0
+                     esac
                       if [ $jobresult == 0 ] ; then
                         echo "job failed"
                         exit 1
