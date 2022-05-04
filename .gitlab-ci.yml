@@ -21,7 +21,7 @@ build:
                 while [[ $isReady == 0 ]] ; do
                   countStatus=$(curl --header "PRIVATE-TOKEN:Ks72P5BHKbL6zhxbUgXw" "https://git3.nexdev.net/api/v4/projects/486/pipelines?scope=running" | jq length)
                   echo "$countStatus"
-                  if [ $countStatus -lt 2 ] ;
+                  if [ $countStatus -lt 4 ] ;
                   then
                     isReady=1
                     echo "$i"
